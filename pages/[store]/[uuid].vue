@@ -74,11 +74,11 @@
           :breakpoints="{
             320: {
               slidesPerView: 1.7,
-              spaceBetween: 1,
+              spaceBetween: 0.5,
             },
             419: {
               slidesPerView: 2,
-              spaceBetween: 1,
+              spaceBetween: 0.5,
             },
             768: {
               slidesPerView: 2,
