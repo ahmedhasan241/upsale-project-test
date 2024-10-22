@@ -1590,31 +1590,32 @@ const selectCard = (card) => {
         { title: 'التقييمات', value: '1', count: userComments.value.length },
         { title: 'المراجعات', value: '2', count: usersReviews.value.length },
       ];
+
+      // Get the index of the selected card
+      const selectedIndex = cards.value.findIndex((c) => c.id === card.id);
+      
+      // Set the active index on the Swiper instance
+      if (swiperInstance.value && selectedIndex !== -1) {
+        swiperInstance.value.slideTo(selectedIndex); // Use slideTo method to change active slide
+      }
     };
 
     // Capture the swiper instance when it's ready
     const onSwiperInit = (swiper) => {
       swiperInstance.value = swiper;
-      console.log('====================================');
-      console.log("swiperInstance" , swiperInstance.value);
-      console.log('====================================');
     };
 
     // Function to handle active slide change
     const onSlideChange = () => {
-      // Check if swiper instance is available
       if (!swiperInstance.value || !swiperInstance.value.slides) {
         console.warn('Swiper instance or slides not available.');
         return;
       }
 
-      // Get the active slide index directly
       const activeSlideIndex = swiperInstance.value.activeIndex;
-
-      // Find the card by active slide index in the cards array
-      const activeCard = cards.value[activeSlideIndex]; // Directly use the index to get the card
+      const activeCard = cards.value[activeSlideIndex]; 
       if (activeCard) {
-        selectCard(activeCard); // Select the active card based on the index
+        selectCard(activeCard);
       }
     };
 
@@ -1623,7 +1624,7 @@ const selectCard = (card) => {
       () => swiperInstance.value?.activeIndex,
       (newVal, oldVal) => {
         if (newVal !== oldVal) {
-          onSlideChange(); // Call onSlideChange when the active index changes
+          onSlideChange();
         }
       }
     );
@@ -1633,6 +1634,7 @@ const selectCard = (card) => {
         onSlideChange(); // Run when the swiper is ready
       }
     });
+
 
     // const loadMoreComments = () => {
 //   displayedComments.value = userComments.value;
