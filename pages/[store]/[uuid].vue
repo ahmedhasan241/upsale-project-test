@@ -77,8 +77,8 @@
               spaceBetween: 0,
             },
             419: {
-              slidesPerView: 2,
-              spaceBetween: 5,
+              slidesPerView: 2.3,
+              spaceBetween: 0,
             },
             768: {
               slidesPerView: 2,
