@@ -90,7 +90,7 @@
             },
           }"
           class="mySwiper h-60 pt-2 my-6"
-          loop="true"
+         
           @slideChange="onSlideChange"
           @swiper="onSwiperInit"
         >
