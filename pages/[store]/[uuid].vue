@@ -1192,7 +1192,7 @@ const verifyPhone = async () => {
       whatsapp_number: value1.value.replace("+", "") + value2.value,
     };
 
-    const { data } = await useFetch(`${config.public.URL}/verify/whatsapp`, {
+    const { data } = await useFetch(`https://up.ft.sa/api/v1/campaign/verify/whatsapp`, {
       method: "POST",
       body: body,
     });
@@ -1220,7 +1220,7 @@ const submitOtp = async () => {
       otp: otpCodeNumber.value,
     };
 
-    const { data } = await useFetch(`${config.public.URL}/verify/otp`, {
+    const { data } = await useFetch(`https://up.ft.sa/api/v1/campaign/verify/otp`, {
       method: "POST",
       body: body,
       headers: {
@@ -1267,7 +1267,7 @@ const setMetaTags = (campaign) => {
 const fetchCampaign = async () => {
   try {
     const response = await fetch(
-      `${config.public.URL}/${route.params.store}/${route.params.uuid}`,
+      `https://up.ft.sa/api/v1/campaign/${route.params.store}/${route.params.uuid}`,
       {
         headers: {
           ACCEPT_LANGUAGE: "ar",
@@ -1309,7 +1309,7 @@ const discountAmount = computed(() => ({
 }));
 const fetchProducts = async () => {
   try {
-    const response = await fetch(`${config.public.URL}/products/${route.params.uuid}`, {
+    const response = await fetch(`https://up.ft.sa/api/v1/campaign/products/${route.params.uuid}`, {
       headers: {
         ACCEPT_LANGUAGE: "ar",
       },
@@ -1353,7 +1353,7 @@ const fetchProducts = async () => {
 };
 const fetchCities = async () => {
   try {
-    const response = await fetch(`${config.public.URL}/get-cities/${route.params.uuid}`, {
+    const response = await fetch(`https://up.ft.sa/api/v1/campaign/get-cities/${route.params.uuid}`, {
       headers: {
         ACCEPT_LANGUAGE: "ar",
       },
@@ -1388,7 +1388,7 @@ const selectedCityData = computed(() => {
 
 const fetchBundles = async () => {
   try {
-    const response = await fetch(`${config.public.URL}/bundles/${route.params.uuid}`, {
+    const response = await fetch(`https://up.ft.sa/api/v1/campaign/bundles/${route.params.uuid}`, {
       headers: {
         ACCEPT_LANGUAGE: "ar",
       },
@@ -1412,7 +1412,7 @@ const fetchBundles = async () => {
 };
 const fetchGifts = async () => {
   try {
-    const response = await fetch(`${config.public.URL}/gifts/${route.params.uuid}`, {
+    const response = await fetch(`https://up.ft.sa/api/v1/campaign/gifts/${route.params.uuid}`, {
       headers: {
         ACCEPT_LANGUAGE: "ar",
       },
@@ -1536,7 +1536,7 @@ const submitForm = async () => {
     };
 
     const { data, error } = await useFetch(
-      `${config.public.URL}/create-order/${route.params.uuid}`,
+      `https://up.ft.sa/api/v1/campaign/create-order/${route.params.uuid}`,
       {
         method: "POST",
         body: body,
